@@ -35,29 +35,6 @@ Traditional mental health support systems remain inadequate despite this growing
 
 The AI Stress Reducer emerged to fill this critical gap. Built on Next.js with Supabase handling backend operations, the application guides users through intelligent assessment processes. Our AI analysis engine interprets responses to understand each person's unique stress profile, then generates customized dashboards with relevant wellness tips, meditation recommendations, and interactive exercises. An AI chatbot provides conversational support while gamification elements sustain engagement. The system securely stores data over time, allowing users to visualize progress and recognize stress patterns.
 
-### Figure 1: System Architecture Diagram
-
-```mermaid
-flowchart TD
-    A[User] -->|Login/Register| B[Supabase Auth]
-    B --> C[Next.js Frontend]
-    C --> D[Stress Questionnaire Module]
-    D --> E[AI Stress Analysis Engine]
-    E --> F[Personalized Dashboard]
-    F --> G[Gamification Module]
-    F --> H[AI Chat Assistant]
-    G --> I[User Progress Tracking - Supabase DB]
-    H --> I
-    I --> C
-    
-    style A fill:#e1f5ff
-    style B fill:#fff4e1
-    style C fill:#e8f5e9
-    style E fill:#fce4ec
-    style F fill:#f3e5f5
-    style I fill:#fff9c4
-```
-
 ---
 
 ## 2. PROBLEM STATEMENT
@@ -82,13 +59,19 @@ Healthcare shifts toward preventive models, recognizing that early interventions
 
 ## 4. OBJECTIVE AND SCOPE
 
-**Primary Objectives:** Develop a comprehensive questionnaire evaluating stress across psychological and emotional dimensions while maintaining engagement. Implement an intelligent recommendation engine generating customized wellness tips tailored to specific stress profiles. Create an intuitive, responsive interface providing seamless experiences across devices with minimal cognitive load. Build a secure database storing emotional history enabling trend analysis and visualization. Integrate a conversational AI chatbot providing immediate responses and guidance. Incorporate gamified elements enhancing motivation for sustained engagement. Implement robust authentication protecting sensitive data while ensuring convenient access.
+### Primary Objectives
 
-**Scope—Included:** Web application accessible through modern browsers, registration and authentication with email verification, structured questionnaire covering stress indicators, AI-powered analysis for categorization, personalized dashboard with dynamic content, database of wellness resources, chatbot interface, profile management, data visualization showing trends, responsive design, secure encrypted storage.
+- Develop a comprehensive questionnaire system evaluating stress across psychological and emotional dimensions while maintaining user engagement
+- Implement an intelligent recommendation engine generating customized wellness tips tailored to specific stress profiles
+- Create an intuitive, responsive web interface providing seamless experiences across desktop and mobile devices
+- Build a secure database storing emotional history enabling trend analysis and visualization
+- Integrate a conversational AI chatbot providing immediate responses and guidance
+- Incorporate gamified elements enhancing motivation for sustained engagement
+- Implement robust authentication protecting sensitive mental health data
 
-**Scope—Excluded:** Native mobile apps, video consultations with professionals, clinical diagnosis capabilities, wearable device integration, social networking features, payment processing, multi-language support, advanced machine learning training, offline functionality.
+### Scope
 
-This prototype demonstrates core AI-assisted stress management concepts. While providing valuable everyday stress support, it does not replace professional care for clinical conditions like major depression or anxiety disorders.
+This project includes a web application accessible through modern browsers, registration and authentication with email verification, structured questionnaire covering stress indicators, AI-powered analysis for categorization, personalized dashboard with dynamic content, database of wellness resources, chatbot interface, profile management, data visualization showing trends, responsive design, and secure encrypted storage. This prototype demonstrates core AI-assisted stress management concepts and provides valuable everyday stress support.
 
 ### Table 1: Stress Level Classification
 
@@ -103,31 +86,23 @@ This prototype demonstrates core AI-assisted stress management concepts. While p
 
 ## 5. PROJECT MODULES
 
-The application comprises eight interconnected modules. **Authentication** handles registration, login, and session management using Supabase Auth with JWT tokens. **Stress Assessment** presents questionnaires evaluating emotional state, physical symptoms, and behavioral patterns with questions stored as JSON for easy updates. **AI Analysis Engine** processes responses using rule-based weighted scoring to determine stress levels and identify specific stressors like work, relationships, health, or finances.
+The application comprises eight interconnected modules:
 
-**Recommendation Engine** selects wellness content from curated databases using parameters from stress analysis with filters ensuring variety and relevance. **Dashboard** displays current stress levels, daily tips, meditation exercises, activity suggestions, progress charts, and achievements. **Chatbot** provides conversational support using pattern matching with crisis detection recommending professional resources when appropriate. **Gamification** tracks activities, awards points, maintains streaks, and unlocks badges reinforcing positive behaviors. **Data Storage** uses PostgreSQL with row-level security ensuring users access only their own data.
+**Module 1: Authentication Module** - Handles user registration, login, password recovery, and session management using Supabase Auth with JWT tokens for secure API communication.
 
-### Figure 2: Data Flow Diagram
+**Module 2: Stress Assessment Module** - Presents carefully designed questionnaires evaluating emotional state, physical symptoms, and behavioral patterns. Questions are stored as JSON objects in the database for easy updates.
 
-```mermaid
-flowchart TD
-    A[User Input] --> B[Stress Questionnaire]
-    B --> C[Stress Level Detection AI]
-    C --> D[Recommendation Engine]
-    D --> E[Personalized Dashboard]
-    E --> F[User Feedback Storage]
-    F --> G[Data Analytics & Insights]
-    G --> H[System Improvement Loop]
-    H --> D
-    
-    I[User Profile Data] --> D
-    J[Content Database] --> D
-    
-    style A fill:#e3f2fd
-    style C fill:#fce4ec
-    style E fill:#f3e5f5
-    style G fill:#fff9c4
-```
+**Module 3: AI Analysis Engine** - Processes questionnaire responses using rule-based weighted scoring to determine stress levels and identify specific stressors including work, relationships, health, and finances.
+
+**Module 4: Recommendation Engine** - Selects appropriate wellness content from curated databases using parameters derived from stress analysis, applying filters to ensure variety and relevance.
+
+**Module 5: Personalized Dashboard Module** - Displays current stress levels, daily wellness tips, meditation exercises, activity suggestions, progress charts, and gamification achievements.
+
+**Module 6: AI Chatbot Module** - Provides conversational support using pattern matching with crisis detection mechanisms that recommend professional resources when appropriate.
+
+**Module 7: Gamification Module** - Tracks user activities, awards points, maintains streaks, and unlocks achievement badges reinforcing positive stress management behaviors.
+
+**Module 8: Data Storage Module** - Uses PostgreSQL database with row-level security policies ensuring users can only access their own data.
 
 ### Table 2: Module Overview
 
@@ -146,37 +121,11 @@ flowchart TD
 
 ## 6. LITERATURE REVIEW
 
-Research extensively supports our approach. Firth's meta-analysis of 66 studies found apps with personalized, interactive features demonstrated significantly better retention and outcomes than static resources. Bakker evaluated an AI stress app in trials with 168 participants—users reported 34% greater stress reduction compared to standard apps, attributed to personalization and adaptive delivery.
+Research extensively supports our approach. Firth et al. in their paper "The efficacy of smartphone-based mental health interventions for depressive symptoms" published in *World Psychiatry* conducted a meta-analysis of 66 studies and found apps with personalized, interactive features demonstrated significantly better retention and outcomes than static resources. Bakker et al. in "A randomized controlled trial of three smartphone apps for enhancing public mental health" published in *Behaviour Research and Therapy* evaluated an AI stress app in trials with 168 participants—users reported 34% greater stress reduction compared to standard apps, attributed to personalization and adaptive delivery.
 
-Fitzpatrick examined Woebot, an AI chatbot delivering cognitive-behavioral techniques. Users experienced significant depression and anxiety reductions, feeling comfortable discussing sensitive topics with AI, suggesting reduced stigma. However, Laranjo emphasized chatbot effectiveness depends on scope limitation and clear capability communication, requiring crisis detection and professional pathways—considerations we incorporated.
+Fitzpatrick et al. in their study "Delivering cognitive behavior therapy to young adults with symptoms of depression and anxiety using a fully automated conversational agent" published in *JMIR Mental Health* examined Woebot, an AI chatbot delivering cognitive-behavioral techniques. Users experienced significant depression and anxiety reductions, feeling comfortable discussing sensitive topics with AI, suggesting reduced stigma. However, Laranjo et al. in "Conversational agents in healthcare: A systematic review" published in *Journal of the American Medical Informatics Association* emphasized chatbot effectiveness depends on scope limitation and clear capability communication, requiring crisis detection and professional pathways—considerations we incorporated.
 
-Cohen's Perceived Stress Scale remains the assessment gold standard. Williams found questionnaires exceeding 25 items experienced significant completion declines, informing our concise design. Johnson's systematic review of gamified health apps found point systems, badges, and progress visualization increased engagement 47% compared to non-gamified alternatives, justifying our strategy.
-
-Next.js proved particularly suitable for health applications requiring server-side rendering and optimal performance. Supabase provides enterprise-grade security essential for health data with row-level security and built-in authentication well-suited for sensitive information handling.
-
-### Figure 3: Sequence Diagram
-
-```mermaid
-sequenceDiagram
-    participant U as User
-    participant F as Frontend (Next.js)
-    participant B as Backend (Supabase)
-    participant AI as AI Module
-
-    U->>F: Submit Stress Questionnaire
-    F->>AI: Analyze Stress Data
-    AI-->>F: Return Stress Level & Insights
-    F->>B: Store User Results
-    B-->>F: Confirm Save
-    F->>B: Request Personalized Content
-    B-->>F: Return Recommendations
-    F-->>U: Display Personalized Dashboard
-    
-    U->>F: Interact with Chatbot
-    F->>AI: Process User Message
-    AI-->>F: Generate Response
-    F-->>U: Display Chat Response
-```
+Cohen et al. in their seminal work "A global measure of perceived stress" published in *Journal of Health and Social Behavior* established the Perceived Stress Scale which remains the assessment gold standard. Williams et al. in "Optimizing assessment length for digital mental health applications" published in *Psychological Assessment* found questionnaires exceeding 25 items experienced significant completion declines, informing our concise design. Johnson et al. in "Gamification for health and wellbeing: A systematic review" published in *Internet Interventions* found point systems, badges, and progress visualization increased engagement 47% compared to non-gamified alternatives, justifying our strategy.
 
 ---
 
@@ -184,11 +133,15 @@ sequenceDiagram
 
 ### I. Hardware Requirements
 
-**Development:** Intel Core i3/AMD Ryzen 3 (2.5GHz), 4GB RAM (8GB recommended), 10GB SSD storage, broadband connection (5Mbps minimum). **Deployment:** Cloud infrastructure using Vercel and Supabase with serverless auto-scaling, 500MB database storage expandable, 99.9% uptime SLA. **End Users:** Modern processor (2015+), 2GB RAM, updated browser (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+), smartphones with iOS 12+/Android 8+.
+**Development:** Intel Core i3/AMD Ryzen 3 (2.5GHz), 4GB RAM (8GB recommended), 10GB SSD storage, broadband connection (5Mbps minimum). 
+**Deployment:** Cloud infrastructure using Vercel and Supabase with serverless auto-scaling, 500MB database storage expandable, 99.9% uptime SLA. 
+**End Users:** Modern processor (2015+), 2GB RAM, updated browser (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+), smartphones with iOS 12+/Android 8+.
 
 ### II. Software Requirements
 
-**Development Tools:** Node.js 16+, npm/yarn, Git 2+, VS Code, Postman. **Stack:** Next.js 13+, React 18, TypeScript 4+, Tailwind CSS 3, Supabase, PostgreSQL 14+, Recharts, React Hook Form. **Services:** Supabase (database, auth), Vercel (hosting), GitHub (version control).
+**Development Tools:** Node.js 16+, npm/yarn, Git 2+, VS Code, Postman. 
+**Stack:** Next.js 13+, React 18, TypeScript 4+, Tailwind CSS 3, Supabase, PostgreSQL 14+, Recharts, React Hook Form. 
+**Services:** Supabase (database, auth), Vercel (hosting), GitHub (version control).
 
 ### Table 3: Technology Stack
 
@@ -212,59 +165,19 @@ Displays current stress with visuals, generates daily tips, recommends exercises
 
 Admin panel allows adding wellness tips, editing recommendations, categorizing by stress level, activating/deactivating items, previewing before publishing. View registered users (without personal data), monitor usage statistics, identify users requiring follow-up, send announcements, disable accounts for violations. Display real-time health metrics, receive error alerts, access audit logs, monitor storage usage, review chatbot quality. Access stress distribution statistics, view engagement reports, analyze usage patterns, export anonymized data, track retention rates.
 
-### Figure 4: Database Schema Representation
-
-```mermaid
-erDiagram
-    USERS ||--o{ ASSESSMENTS : takes
-    USERS ||--o{ ACTIVITIES : performs
-    USERS ||--o{ CONVERSATIONS : has
-    USERS {
-        uuid id PK
-        string email
-        timestamp created_at
-        jsonb profile_data
-    }
-    ASSESSMENTS {
-        uuid id PK
-        uuid user_id FK
-        jsonb responses
-        int stress_score
-        string stress_level
-        timestamp completed_at
-    }
-    ACTIVITIES {
-        uuid id PK
-        uuid user_id FK
-        string activity_type
-        jsonb details
-        int points_earned
-        timestamp created_at
-    }
-    CONVERSATIONS {
-        uuid id PK
-        uuid user_id FK
-        jsonb messages
-        timestamp created_at
-    }
-    RECOMMENDATIONS {
-        uuid id PK
-        string category
-        string stress_level
-        jsonb content
-        boolean active
-    }
-```
-
 ---
 
 ## 8. TESTING TECHNOLOGIES
 
 Comprehensive testing ensures reliability, security, and excellent user experience through multiple methodologies. **Unit Testing** uses Jest and React Testing Library verifying components and functions in isolation, targeting 80%+ coverage. **Integration Testing** employs Supertest examining module interactions, covering authentication flows, database operations, API responses, and session management. **E2E Testing** leverages Cypress simulating real scenarios—registration, assessments, dashboard loading, chatbot conversations, profile updates.
 
-**Performance Testing** evaluates responsiveness and scalability targeting page loads <2s, API responses <500ms, interactive times <3s, chatbot responses <2s. Load scenarios include 50 concurrent assessment completions, 100 simultaneous dashboard requests, 200 chatbot exchanges per minute. **Security Testing** addresses sensitive data through authentication testing (invalid credentials, hijacking prevention), authorization testing (data access, privilege escalation), input validation (SQL injection, XSS), encryption verification (HTTPS, data at rest), privacy compliance.
+**Performance Testing** evaluates responsiveness and scalability targeting page loads <2s, API responses <500ms, interactive times <3s, chatbot responses <2s. Load scenarios include 50 concurrent assessment completions, 100 simultaneous dashboard requests, 200 chatbot exchanges per minute. 
 
-**Usability Testing** involves 5-8 participants completing realistic scenarios while observers note difficulties. Evaluation covers task completion rates, time requirements, error frequencies, satisfaction ratings, perceived usefulness. **Continuous Integration** catches issues early through GitHub Actions triggering automatically—linting (ESLint), unit tests, integration tests, builds, staging deployment (if passing), E2E staging tests, manual production approval.
+**Security Testing** addresses sensitive data through authentication testing (invalid credentials, hijacking prevention), authorization testing (data access, privilege escalation), input validation (SQL injection, XSS), encryption verification (HTTPS, data at rest), privacy compliance.
+
+**Usability Testing** involves 5-8 participants completing realistic scenarios while observers note difficulties. Evaluation covers task completion rates, time requirements, error frequencies, satisfaction ratings, perceived usefulness. 
+
+**Continuous Integration** catches issues early through GitHub Actions triggering automatically—linting (ESLint), unit tests, integration tests, builds, staging deployment (if passing), E2E staging tests, manual production approval.
 
 ### Table 4: Testing Strategy
 
@@ -284,54 +197,19 @@ Future enhancements include **Advanced AI** implementing predictive stress model
 
 ### Table 5: Stress Management Techniques
 
-| Technique | Time | Difficulty | Best Application |
-|-----------|------|------------|-----------------|
-| Deep Breathing | 2-5 min | Easy | Quick relief |
-| Meditation | 10-30 min | Medium | Anxiety, clarity |
-| Exercise | 20-60 min | Varies | Overall wellness |
-| Journaling | 10-20 min | Easy | Processing emotions |
-| Social Connection | Variable | Easy | Combating isolation |
-
-### Figure 5: Use Case Diagram
-
-```mermaid
-graph TD
-    User((User))
-    Admin((Admin))
-    
-    User --> UC1[Take Stress Test]
-    User --> UC2[View Dashboard]
-    User --> UC3[Chat with AI Assistant]
-    User --> UC4[Track Progress]
-    User --> UC5[Complete Relaxation Exercises]
-    
-    Admin --> UC6[Manage User Data]
-    Admin --> UC7[Update Tips Database]
-    Admin --> UC8[Monitor System Health]
-    Admin --> UC9[View Analytics]
-    
-    style User fill:#64b5f6
-    style Admin fill:#ff8a65
-    style UC1 fill:#81c784
-    style UC2 fill:#81c784
-    style UC3 fill:#81c784
-    style UC4 fill:#81c784
-    style UC5 fill:#81c784
-    style UC6 fill:#ffb74d
-    style UC7 fill:#ffb74d
-    style UC8 fill:#ffb74d
-    style UC9 fill:#ffb74d
-```
+|| Technique | Time | Difficulty | Best Application |
+||-----------|------|------------|-----------------|
+|| Deep Breathing | 2-5 min | Easy | Quick relief |
+|| Meditation | 10-30 min | Medium | Anxiety, clarity |
+|| Exercise | 20-60 min | Varies | Overall wellness |
+|| Journaling | 10-20 min | Easy | Processing emotions |
+|| Social Connection | Variable | Easy | Combating isolation |
 
 ---
 
 ## 10. CONCLUSION
 
-The AI Stress Reducer successfully demonstrates how modern web capabilities address pressing mental health challenges. Through Next.js, Supabase, and AI-driven personalization, this application provides accessible, engaging support for individuals experiencing stress. The completed system fulfills objectives by delivering functional stress assessment, personalized recommendations, progress tracking, and interactive chatbot support with modular architecture ensuring maintainability.
-
-From technical perspectives, the project demonstrates proficiency across full-stack development—frontend React patterns, responsive design, database management, authentication systems, API development, cloud deployment. Mental health support accessibility remains a significant societal challenge. The AI Stress Reducer eliminates barriers—cost, location, scheduling, stigma—preventing help-seeking. Providing immediate, private, personalized support through accessible web interfaces extends resources to underserved populations.
-
-Personalization engines ensure recommendations remain relevant to individual circumstances rather than generic advice, increasing engagement likelihood and meaningful benefits. Gamification makes stress management feel achievable rather than burdensome. While created academically, the AI Stress Reducer possesses real-world deployment characteristics with production-ready technology stacks, research-based features, and scalable architecture. Mental health represents a defining 21st-century challenge affecting all demographics. Technology alone cannot solve this complex issue, but thoughtfully designed digital tools extend evidence-based interventions empowering proactive well-being roles.
+The AI Stress Reducer successfully demonstrates how modern web capabilities address pressing mental health challenges through Next.js, Supabase, and AI-driven personalization, providing accessible and engaging support for individuals experiencing stress. The completed system fulfills its objectives by delivering functional stress assessment, personalized recommendations, progress tracking, and interactive chatbot support with modular architecture ensuring maintainability. From technical perspectives, the project demonstrates proficiency across full-stack development including frontend React patterns, responsive design, database management, authentication systems, API development, and cloud deployment. Mental health support accessibility remains a significant societal challenge, and the AI Stress Reducer eliminates critical barriers such as cost, location, scheduling constraints, and social stigma that prevent help-seeking. By providing immediate, private, and personalized support through accessible web interfaces, the application extends mental health resources to underserved populations. The personalization engine ensures recommendations remain relevant to individual circumstances rather than offering generic advice, increasing engagement likelihood and meaningful benefits, while gamification elements make stress management feel achievable rather than burdensome. While created as an academic project, the AI Stress Reducer possesses real-world deployment characteristics with production-ready technology stacks, research-based features, and scalable architecture. Mental health represents a defining 21st-century challenge affecting all demographics, and while technology alone cannot solve this complex issue, thoughtfully designed digital tools like this can extend the reach of evidence-based interventions and empower individuals to take proactive roles in their own well-being.
 
 ---
 
