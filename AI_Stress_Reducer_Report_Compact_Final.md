@@ -197,13 +197,14 @@ Future enhancements include **Advanced AI** implementing predictive stress model
 
 ### Table 5: Stress Management Techniques
 
-|| Technique | Time | Difficulty | Best Application |
-||-----------|------|------------|-----------------|
-|| Deep Breathing | 2-5 min | Easy | Quick relief |
-|| Meditation | 10-30 min | Medium | Anxiety, clarity |
-|| Exercise | 20-60 min | Varies | Overall wellness |
-|| Journaling | 10-20 min | Easy | Processing emotions |
-|| Social Connection | Variable | Easy | Combating isolation |
+| Technique | Time | Difficulty | Best Application |
+|-----------|------|------------|-----------------|
+| Deep Breathing | 2-5 min | Easy | Quick relief |
+| Meditation | 10-30 min | Medium | Anxiety, clarity |
+| Exercise | 20-60 min | Varies | Overall wellness |
+| Journaling | 10-20 min | Easy | Processing emotions |
+| Social Connection | Variable | Easy | Combating isolation |
+
 
 ---
 
@@ -240,3 +241,4 @@ The AI Stress Reducer successfully demonstrates how modern web capabilities addr
 **[Student Name] | [Date]**
 
 *END OF REPORT*
+
